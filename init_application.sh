@@ -7,7 +7,7 @@
 mkdir applications 2>/dev/null
 mkdir applications/$1 2> /dev/null
 ## Copy the template of coverletter 
-mkdir applications$1/$2 2> /dev/null 
+mkdir applications/$1/$2 2> /dev/null 
 mkdir applications/$1/$2/src 2>/dev/null
 mkdir applications/$1/$2/target 2>/dev/null
 mkdir applications/$1/$2/build 2>/dev/null
@@ -16,7 +16,6 @@ mkdir applications/$1/$2/build 2>/dev/null
 cp .src/template_cover_letter.tex applications/$1/$2/src/cover_letter.tex 
 ## need to put my cv tex in the
 ## Just Copy my cv for now. 
-cp .src/cv.tex applications/$1/$2/src 
 
 ## Copy the config file for the coverletter empty 
 cp .src/mystyle.sty applications/$1/$2/src 
