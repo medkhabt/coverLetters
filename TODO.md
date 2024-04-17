@@ -1,0 +1,7 @@
+- [ ] Add shared configs also inside each firm folder. 
+- [ ] Integrate the cv. 
+- [ ] Make the cv dynamic by specifying flexible sections. For example projects, or professional experience. 
+- [ ] Fill all the information blocks of the flexible sections. 
+- [ ] Be able to chose which information blocks to show based on configs.  
+- [ ] Maximum size check  ?  to keep it in one page. 
+- [ ] Also a GUI, at least to fill the parameters. 
