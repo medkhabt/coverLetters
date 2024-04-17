@@ -1,0 +1,176 @@
+%!TEX TS-program = xelatex
+\documentclass[oneside]{friggeri-cv}
+\usepackage{afterpage}
+\usepackage{hyperref}
+\usepackage{color}
+\usepackage{xcolor}
+\usepackage{smartdiagram}
+
+\usepackage{fontspec}
+% if you want to add fontawesome package
+% you need to compile the tex file with LuaLaTeX
+% References:
+%   http://texdoc.net/texmf-dist/doc/latex/fontawesome/fontawesome.pdf
+%   https://www.ctan.org/tex-archive/fonts/fontawesome?lang=en
+%\usepackage{fontawesome}
+\usepackage{metalogo}
+\usepackage{csquotes}
+\usepackage{dtklogos}
+\usepackage[utf8]{inputenc}
+\usepackage{tikz}
+\usetikzlibrary{mindmap,shadows}
+\hypersetup{
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdftitle={CV of Aaron Schneider},
+}
+
+\smartdiagramset{
+    bubble center node font = \footnotesize,
+    bubble node font = \footnotesize,
+    % specifies the minimum size of the bubble center node
+    bubble center node size = 0.3cm,
+    %  specifies the minimum size of the bubbles
+    bubble node size = 0.01cm,
+    % specifies which is the distance among the bubble center node and the other bubbles
+    distance center/other bubbles = 0.7cm,
+    % sets the distance from the text to the border of the bubble center node
+    distance text center bubble = 0.3cm,
+    % set center bubble color
+    bubble center node color = pgray,
+    % define the list of colors usable in the diagram
+    set color list = {lightgray, materialcyan, orange, green, materialorange, materialteal, materialamber, materialindigo, materialgreen, materiallime},
+    % sets the opacity at which the bubbles are shown
+    bubble fill opacity = 0.6,
+    % sets the opacity at which the bubble text is shown
+    bubble text opacity = 0.5,
+}
+
+%\addbibresource{bibliography.bib}
+\RequirePackage{xcolor}
+\definecolor{pblue}{HTML}{0395DE}
+\definecolor{pgray}{HTML}{6E6E6E}
+
+\begin{document}
+\header{\hspace{1.8cm}Mohamed Khalil}{ Loukhnati}{\hspace{1.2cm} Doppelstudierende im Masterprogramm}
+%\header{\hspace{1.2cm}Mohamed Khalil}{ Loukhnati}{\hspace{1.2cm} (Doppelstudierende im Masterprogramm) test}
+
+
+% Fake text to add separator
+\fcolorbox{white}{gray}{\parbox{\dimexpr\textwidth-2\fboxsep-2\fboxrule}{%
+.....
+}}
+
+% In the aside, each new line forces a line break
+\begin{aside}
+  \includegraphics[scale=0.20]{img/loukhnati1}
+\section{Über mich}
+~  
+\textbf{Nationalität}
+   Marokkanisch
+   ~
+  \textbf{Geburtsort}
+   Agadir 
+  ~
+  \textbf{Geburtstag}
+  28.12.1998
+  ~  
+  \textbf{Familienstand}
+  ledig 
+  \section{Programmieren}
+	  ~
+	Java
+        C/C++
+        PHP
+        Javascript
+        CUDA
+        Python
+        Bash
+        PROLOG
+        SPARQL
+	  ~
+    \textbf{github:} 
+    \href{https://github.com/medkhabt/}{@medkhabt}
+     \section{Sprachen}
+	  ~
+    \textbf{Arabisch}
+    Muttersprache
+    ~
+    \textbf{Deutsch}
+    B2 
+    ~
+    \textbf{Englisch}
+    C1 
+    ~
+    \textbf{Franzosich}
+    C2 
+ \section{Interessen}
+ ~
+ Volleyball
+ Basketball 
+ Guitar spielen
+ Bouldering
+ %road cycling
+ Programmieren
+\end{aside}
+
+\section{Bildung}
+\begin{entrylist}
+  \entry
+    {09/13 - 06/16}
+    {Gymnasium}
+    {Technisches Gymnasium Al Idrissi}
+    {\begin{itemize}\vspace{-3mm}
+	 	\item Leistungskurse: Elektronik, Elektrotechnik, Physik, Mathematik
+	\end{itemize}}
+  \entry
+    {09/16 - 07/21}
+    {Master in Informatik}
+    {Nationale Schule für Angewandte Wissenschaften in Agadir}
+    {\begin{itemize}\vspace{-3mm}
+    	\item Spezialisierungen: Softwaretechnik    	
+	\item Abschlussprojekt: \enquote{Die Entwicklung einer Webplattform zur Verwaltung einer ambulanten Krankenhausabteilung. Ich habe im Backend mit Java (Spring Cloud) und MySQL gearbeitet. Ich musste einige REST-Endpunkte bereitstellen und die Logik sowie die Architektur des Tools einrichten. Wir mussten unsere Microservices (hauptsächlich Spring-Boot-Services für mich) mit Docker containerisieren.}
+    	\item Unternehmen: Berexia Consulting 
+    \end{itemize}
+	}
+  \entry
+    {04/22 - jetzt}
+    {Doppelabschluss im Masterstudium Informatik}
+    {Universität Passau und INSA Lyon}
+    {\begin{itemize}\vspace{-3mm}
+    	\item Hauptkurse: Multimedia-Datenbankmanagement, Algorithmen zur Graphvisualisierung, paralleles und GPU-Programmieren, Compilerkonstruktion, forschungsbasierte Ausbildung 
+ 
+    	\item Masterarbeit: \enquote{Bewertung der Sprachenvielfalt bei Webcrawls}
+    \end{itemize}
+    }
+\\
+\end{entrylist}
+
+\section{Letzten Projekte}
+\begin{entrylist}
+\vspace{0.15cm} 
+  \entry
+    {01/23 - 04/23}
+    {\texttt{Erstellung eines Compilers mit einigen Funktionen von GCC} (C++)}
+    {privates GitHub-Repository \vspace{0.1cm}}
+    {Wir haben als Gruppe von 8 Personen einen Compiler entwickelt. Wir haben die ANTLR4-Bibliothek verwendet, um den Parser-Baum zu generieren und zu durchlaufen. Unser Ziel ist es, einen Compiler zu erstellen, der äquivalent zu dem von GCC für mehrere Funktionen ist}  
+\vspace{0.15mm} 
+  \entry
+    {01/23 - 04/23}
+    {\texttt{System zur Erkennung von Inferenzangriffen auf Multidatabases} (Python)  \vspace{0.1cm}}
+    {privates GitLab-Repository}
+    {Ich war Teil eines Forschungsteams am LIRIS-Labor für den Schutz vor Inferenzangriffen auf mehrere Datenbanken. Meine Aufgaben umfassten die Implementierung des Protokolls zur sicheren Einrichtung und Weitergabe von Ähnlichkeitsverknüpfungen zwischen Attributen in verschiedenen Datenbanken}           
+\vspace{0.15mm} 
+  \entry
+    {05/23 - 09/23}
+    {\texttt{Sommerpraktikum als Webentwickler} (PHP)}
+    {privates GitHub-Repository \vspace{0.1cm}}
+    {Ich habe an mehreren Projekten mit dem Entwicklerteam für ein Softwareunternehmen gearbeitet, das Tools für Reisebüros oder Kunden bereitstellt, die den Reisemotor in ihre Website integrieren möchten. Es handelte sich hauptsächlich um PHP (Laravel, FuelPHP) und ich habe mit MySQL-Datenbanken gearbeitet. Außerdem habe ich einige CI-Arbeiten mit Deployer und GitLab CI durchgeführt}           
+  \entry
+    {jetzt}
+    {\texttt{Bewertung der Sprachenvielfalt bei Webcrawls} (Python, Bash)}
+    {\href{https://github.com/medkhabt/Language_diversity_common_crawler}{Link zu Github}}
+    {Ich befinde mich am Anfang meiner Masterarbeit. Derzeit richte ich die Pipeline ein, um verschiedene Methoden zu evaluieren und ihren Einfluss auf die Rate der Sprachenvielfalt beim Durchsuchen des Webs zu bewerten.}    
+\end{entrylist}
+\end{document}
