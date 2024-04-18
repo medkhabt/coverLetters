@@ -18,9 +18,9 @@ cp .src/template_cover_letter.tex applications/$1/$2/src/cover_letter.tex
 ## Just Copy my cv for now. 
 
 ## Copy the config file for the coverletter empty 
-cp .src/mystyle.sty applications/$1/$2/src 
+xsltproc --output applications/$1/$2/src/mystyle.sty .src/configs.xslt configs/shared_configs.xml
 ## Copy the run script, with the option of regenrating the cv. 
 cp .src/run.sh applications/$1/$2/src
 
-bash .src/load_config.sh applications/$1/$2/src
+
 #rm load_config.sh
