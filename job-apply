@@ -6,7 +6,7 @@ _job-apply()
     cur="${COMP_WORDS[COMP_CWORD]}"
     prev="${COMP_WORDS[COMP_CWORD-1]}"
     prev_2="${COMP_WORDS[COMP_CWORD-2]}"
-    opts="-f -c -a -g -b -p -l --firms --applications --create --go --build --preview --list"
+    opts="-f -c  -g -b -p -l --configs --create --go --build --preview --list"
     case "${prev}" in
 	-c | --create) 
 	    local firms=$(for x in `job-apply -l`; do echo $x; done )
@@ -14,7 +14,7 @@ _job-apply()
 	    	    return 0
 	;;
 
-	-g | -b | -p | --go | --build | --preview)
+	-g | -b | -p | -f | --go | --build | --preview | --config )
 	local firms=$(for x in `job-apply -l`; do echo $x; done )
 	    	    COMPREPLY=( $(compgen -W "${firms}" -- ${cur}) )
 	    return 0
