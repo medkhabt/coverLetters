@@ -6,7 +6,7 @@
 	</xsl:copy> 
     </xsl:template>
     <xsl:template match="/configs/*">
-	<xsl:variable name='override' select="document('shared_configs.xml')/configs/*[name()=name(current())]"/>
+	<xsl:variable name='override' select="document('../configs/shared_configs.xml')/configs/*[name()=name(current())]"/>
 	<xsl:choose> 
 	    <xsl:when test="$override">
 		<xsl:copy-of select="$override"/>
