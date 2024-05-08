@@ -5,6 +5,7 @@
 - [X] Fix the pdf showcase that doesn't close afterwards.
 - [ ] Add the get to the root dir as a parameter.
 - [ ] Manual install file. 
+- [ ] 'BUG' For firms need to create just the folder and not generate a new application.
 ## Version 2 
 - [ ] Integrate the cv. 
 - [ ] Make the cv dynamic by specifying flexible sections. For example projects, or professional experience. 

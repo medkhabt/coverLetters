@@ -6,7 +6,7 @@ _job-apply()
     cur="${COMP_WORDS[COMP_CWORD]}"
     prev="${COMP_WORDS[COMP_CWORD-1]}"
     prev_2="${COMP_WORDS[COMP_CWORD-2]}"
-    opts="-f -c  -g -b -p -l --configs --create --go --build --preview --list"
+    opts="-f -c  -g -b -p -l --config --create --go --build --preview --list"
     case "${prev}" in
 	-c | --create) 
 	    local firms=$(for x in `job-apply -l`; do echo $x; done )

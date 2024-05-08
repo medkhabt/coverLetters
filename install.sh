@@ -17,7 +17,7 @@ echo "end of cleaning"
 
 mkdir ~/Library/Job-apply
 
-version='alpha-0.2.0'
+version='alpha-0.1.0'
 
 project_path="$HOME/Library/Job-apply/$version"
 mkdir $project_path
