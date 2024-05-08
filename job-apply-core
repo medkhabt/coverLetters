@@ -64,7 +64,7 @@ build() {
 	>&2 echo "/** missing input: create [firm] [position] **/"
 	exit 1
     fi
-    bash "$job_apply_path"/applications/$1/$2/src/run.sh 
+    cd "$job_apply_path"/applications/$1/$2/src ; bash /run.sh 
 }
 preview() {
     if [ -z "$1" ] || [ -z "$2" ]; then 
