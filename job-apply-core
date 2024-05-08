@@ -2,7 +2,6 @@
 shopt -s expand_aliases
 
 list(){
-    # If statement, to check if cr_path is set 
     if [ -n "$job_apply_path" ]; then 
 	ls -l "$job_apply_path/applications/$1" | grep '^d' | rev | awk '{print $1}' | rev 
     else 
@@ -12,39 +11,33 @@ list(){
 
 create(){
     #TODO repeated code
-    if [ -z "$1" ] || [ -z "$2" ]; then 
-	>&2 echo "/** missing input: create [firm] [position] **/"
-	exit 1
+    if [ -z "$1" ] ;then 
+	>&2 echo "/** missing input: create [firm] **/"
+	return 1
     fi
 
     mkdir "$job_apply_path"/applications 2>/dev/null
     mkdir "$job_apply_path"/applications/$1 2> /dev/null
-    ## Copy the template of coverletter 
     mkdir "$job_apply_path"/applications/$1/$2 2> /dev/null 
     mkdir "$job_apply_path"/applications/$1/$2/src 2>/dev/null
     mkdir "$job_apply_path"/applications/$1/$2/target 2>/dev/null
     mkdir "$job_apply_path"/applications/$1/$2/build 2>/dev/null
 
     echo "> application dir created." 
-    ## I can even create a simlink to the template and change the path each time we add a new level or not , but i don't think it is necessary for now. 
-    cp "$job_apply_path"/.src/template_cover_letter.tex "$job_apply_path"/applications/$1/$2/src/cover_letter.tex 
-    echo ">template cover letter coppied."
-    ## need to put my cv tex in the
-    ## Just Copy my cv for now. 
 
-    ## Copy the config file for the coverletter empty 
+    cp "$job_apply_path"/.src/template_cover_letter.tex "$job_apply_path"/applications/$1/$2/src/cover_letter.tex 
+    echo "> template cover letter coppied."
 
     xsltproc --output "$job_apply_path"/applications/$1/$2/src/configs.xml "$job_apply_path"/.src/conf.xslt "$job_apply_path"/configs/default_configs.xml
     
-    echo ">configuration generated."
-    ## Copy the xsl transformer to latex
+    echo "> configuration generated."
+
     cp "$job_apply_path"/.src/to_latex.xslt "$job_apply_path"/applications/$1/$2/src 
-    echo "> xslt to latex copied"
-    ## Generate the configs for my project 
-    #xsltproc --output "$cr_path"/applications/$1/$2/src/mystyle.sty "$cr_path"/.src/configs.xslt configs/shared_configs.xml
-    ## Copy the run script, with the option of regenrating the cv. 
+    echo "> xslt to latex copied."
+
     cp "$job_apply_path"/.src/run.sh "$job_apply_path"/applications/$1/$2/src
     cp "$job_apply_path"/.src/README.md "$job_apply_path"/applications/$1/$2/src
+
     echo "> finished."
 
 return 0
@@ -53,31 +46,31 @@ return 0
 
 go() {
     if [ -z "$1" ] || [ -z "$2" ]; then 
-	>&2 echo "/** missing input: create [firm] [position] **/"
-	exit 1
+	>&2 echo "/** missing input: go [firm] [position] **/"
+	return 1
     fi
     cd "$job_apply_path"/applications/$1/$2/src 
 }
 
 build() {
     if [ -z "$1" ] || [ -z "$2" ]; then 
-	>&2 echo "/** missing input: create [firm] [position] **/"
-	exit 1
+	>&2 echo "/** missing input: build [firm] [position] **/"
+	return 1
     fi
     cd "$job_apply_path"/applications/$1/$2/src ; bash run.sh 
 }
 preview() {
     if [ -z "$1" ] || [ -z "$2" ]; then 
-	>&2 echo "/** missing input: create [firm] [position] **/"
-	exit 1
+	>&2 echo "/** missing input: preview [firm] [position] **/"
+	return 1
     fi
     open -F  -a Preview "$job_apply_path"/applications/$1/$2/target/cover_letter.pdf
 }
 
 config(){
     if [ -z "$1" ] || [ -z "$2" ]; then 
-	>&2 echo "/** missing input: create [firm] [position] **/"
-	exit 1
+	>&2 echo "/** missing input: config [firm] [position] **/"
+	return 1
     fi
     vim "$job_apply_path"/applications/$1/$2/src/configs.xml 
 }
