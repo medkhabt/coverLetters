@@ -1,0 +1,16 @@
+<configs>
+    <myname>test</myname>
+    <myaddress>test</myaddress>
+    <myemail>test</myemail>
+    <myphone>test</myphone>
+    <firmName>test</firmName>
+    <firmResponsible>test</firmResponsible>
+    <firmRespJob>test</firmRespJob>
+    <firmAddress>test</firmAddress>
+    <dateAndPlace>test</dateAndPlace>
+    <subjekt>test</subjekt>
+    <einleitung>test</einleitung>
+    <haupteileins>test</haupteileins>
+    <haupteilzwei>test</haupteilzwei>
+    <schluss>"Uber eine Einladung zum pers"onlichen Gespr"ach w"urde ich mich sehr freuen.</schluss>
+</configs>
