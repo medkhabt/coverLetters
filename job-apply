@@ -24,7 +24,7 @@ _job-apply()
     ## In case we have two parameters 
      if [ ${COMP_CWORD} -gt 2 ]; then
 	case "${prev_2}" in 
-	    -g | -b | -p | --go | --build | --preview)
+	    -g | -b | -p | -f | --go | --build | --preview | --config)
 		local applications=$(for x in `job-apply -l ${prev}`; do echo $x; done )
 		COMPREPLY=( $(compgen -W "${applications}" -- ${cur}) )
 		return 0;;

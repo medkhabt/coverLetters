@@ -13,5 +13,7 @@
 - [ ] Maximum size check  ?  to keep it in one page. 
 - [ ] compatible also for linux distros.
 - [ ] brew tap
+- [ ] choose the application to open the config with  ( completion on the apps ) 
+- [ ] open also the shared config 
 ## Version 3 
 - [ ] Also a GUI, at least to fill the parameters. 

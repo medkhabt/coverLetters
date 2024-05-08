@@ -74,6 +74,14 @@ preview() {
     open -F  -a Preview "$job_apply_path"/applications/$1/$2/target/cover_letter.pdf
 }
 
+config(){
+    if [ -z "$1" ] || [ -z "$2" ]; then 
+	>&2 echo "/** missing input: create [firm] [position] **/"
+	exit 1
+    fi
+    vim "$job_apply_path"/applications/$1/$2/src/configs.xml 
+}
+
 # I don't think the while is usefull in this setup
 while true; do
   case "$1" in
@@ -84,6 +92,7 @@ while true; do
     -g | --go) go "$2" "$3"; break;; 
     -b | --build) build "$2" "$3" ; break;; 
     -p | --preview) preview "$2" "$3" ; break;; 
+    -f | --config) config "$2" "$3"; break;;
     -- ) shift; break ;;
     * ) break ;;
   esac
