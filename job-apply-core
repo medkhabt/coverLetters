@@ -10,33 +10,33 @@ list(){
 }
 
 create(){
-    #TODO repeated code
+    firm=$(echo ${1// /_}) 
+    application=$(echo ${2// /_}) 
     if [ -z "$1" ] ;then 
 	>&2 echo "/** missing input: create [firm] **/"
 	return 1
     fi
-
     mkdir "$job_apply_path"/applications 2>/dev/null
-    mkdir "$job_apply_path"/applications/$1 2> /dev/null
-    mkdir "$job_apply_path"/applications/$1/$2 2> /dev/null 
-    mkdir "$job_apply_path"/applications/$1/$2/src 2>/dev/null
-    mkdir "$job_apply_path"/applications/$1/$2/target 2>/dev/null
-    mkdir "$job_apply_path"/applications/$1/$2/build 2>/dev/null
+    mkdir "$job_apply_path"/applications/$firm 2> /dev/null
+    mkdir "$job_apply_path"/applications/$firm/$application 2> /dev/null 
+    mkdir "$job_apply_path"/applications/$firm/$application/src 2>/dev/null
+    mkdir "$job_apply_path"/applications/$firm/$application/target 2>/dev/null
+    mkdir "$job_apply_path"/applications/$firm/$application/build 2>/dev/null
 
     echo "> application dir created." 
 
-    cp "$job_apply_path"/.src/template_cover_letter.tex "$job_apply_path"/applications/$1/$2/src/cover_letter.tex 
+    cp "$job_apply_path"/.src/template_cover_letter.tex "$job_apply_path"/applications/$firm/$application/src/cover_letter.tex 
     echo "> template cover letter coppied."
 
-    xsltproc --output "$job_apply_path"/applications/$1/$2/src/configs.xml "$job_apply_path"/.src/conf.xslt "$job_apply_path"/configs/default_configs.xml
+    xsltproc --output "$job_apply_path"/applications/$firm/$application/src/configs.xml "$job_apply_path"/.src/conf.xslt "$job_apply_path"/configs/default_configs.xml
     
     echo "> configuration generated."
 
-    cp "$job_apply_path"/.src/to_latex.xslt "$job_apply_path"/applications/$1/$2/src 
+    cp "$job_apply_path"/.src/to_latex.xslt "$job_apply_path"/applications/$firm/$application/src 
     echo "> xslt to latex copied."
 
-    cp "$job_apply_path"/.src/run.sh "$job_apply_path"/applications/$1/$2/src
-    cp "$job_apply_path"/.src/README.md "$job_apply_path"/applications/$1/$2/src
+    cp "$job_apply_path"/.src/run.sh "$job_apply_path"/applications/$firm/$application/src
+    cp "$job_apply_path"/.src/README.md "$job_apply_path"/applications/$firm/$application/src
 
     echo "> finished."
 
