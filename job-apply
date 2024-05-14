@@ -6,7 +6,7 @@ _job-apply()
     cur="${COMP_WORDS[COMP_CWORD]}"
     prev="${COMP_WORDS[COMP_CWORD-1]}"
     prev_2="${COMP_WORDS[COMP_CWORD-2]}"
-    opts="-f -c  -g -b -p -l --config --create --go --build --preview --list"
+    opts="-f -c  -g -b -p -l -s  --config --create --go --build --preview --list --save"
     case "${prev}" in
 	-c | --create) 
 	    local firms=$(for x in `job-apply -l`; do echo $x; done )
@@ -14,7 +14,7 @@ _job-apply()
 	    	    return 0
 	;;
 
-	-g | -b | -p | -f | --go | --build | --preview | --config )
+	-g | -b | -p | -f | -s | --go | --build | --preview | --config | --save)
 	local firms=$(for x in `job-apply -l`; do echo $x; done )
 	    	    COMPREPLY=( $(compgen -W "${firms}" -- ${cur}) )
 	    return 0
@@ -24,7 +24,7 @@ _job-apply()
     ## In case we have two parameters 
      if [ ${COMP_CWORD} -gt 2 ]; then
 	case "${prev_2}" in 
-	    -g | -b | -p | -f | --go | --build | --preview | --config)
+	    -g | -b | -p | -f | -s | --go | --build | --preview | --config | --save)
 		local applications=$(for x in `job-apply -l ${prev}`; do echo $x; done )
 		COMPREPLY=( $(compgen -W "${applications}" -- ${cur}) )
 		return 0;;

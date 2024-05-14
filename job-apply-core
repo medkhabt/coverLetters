@@ -75,6 +75,14 @@ config(){
     vim "$job_apply_path"/applications/$1/$2/src/configs.xml 
 }
 
+save(){
+    if [ -z "$1" ] || [ -z "$2" ]; then 
+	>&2 echo "/** missing input: config [firm] [position] **/"
+	return 1
+    fi
+    cp "$job_apply_path"/applications/$1/$2/target/*.pdf "$1_$2_cover_letter.pdf"
+}
+
 # I don't think the while is usefull in this setup
 while true; do
   case "$1" in
@@ -86,6 +94,7 @@ while true; do
     -b | --build) build "$2" "$3" ; break;; 
     -p | --preview) preview "$2" "$3" ; break;; 
     -f | --config) config "$2" "$3"; break;;
+    -s | --save) save "$2" "$3"; break;;
     -- ) shift; break ;;
     * ) break ;;
   esac
