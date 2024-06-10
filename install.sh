@@ -1,12 +1,19 @@
 #! /bin/bash
 
+machine="$(uname -s)"
+case "${machine}" in 
+	Linux*) app_dir="/usr/lib/Job-apply"; completion_dir="/usr/share/bash-completion/completions";;
+        Darwin*) app_dir="$HOME/Library/Job-apply"; completion_dir="/usr/local/etc/bash_completion.d/";;
+	*) echo "Machine not compatible with the script"; exit 1;;
+esac 
 
 clean(){
-    rm -rf $HOME/Library/Job-apply
+    rm -rf $app_dir 
     cp $HOME/.bashrc $HOME/.back_up_bashrc
     grep -v '\#job-apply-snippet' $HOME/.bashrc > $HOME/.tmp_bashrc
     mv $HOME/.tmp_bashrc $HOME/.bashrc
     rm /usr/local/bin/job-apply*
+    rm $completion_dir/job-apply
 }
 
 
@@ -15,11 +22,11 @@ clean
 
 echo "end of cleaning"
 
-mkdir ~/Library/Job-apply
+mkdir $app_dir 
 
 version='alpha-0.1.0'
 
-project_path="$HOME/Library/Job-apply/$version"
+project_path="$app_dir/$version"
 mkdir $project_path
 
 cd $project_path;
@@ -30,7 +37,7 @@ rm README.md 2> /dev/null
 rm install.sh 2> /dev/null
 
 mv job-apply-core /usr/local/bin/job-apply-core-$version
-mv job-apply /usr/local/etc/bash_completion.d/
+mv job-apply $completion_dir 
 
 mkdir applications
 

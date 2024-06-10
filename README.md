@@ -1,5 +1,5 @@
 
-_Note: Works only in Mac for now, there are plans on making it work on popular linux distros._
+_Note: Tested on MacOs and Debian_ 
 
 ## Installation 
 Download the release, that should have an installation script, or clone the project which will also clone the install script 
